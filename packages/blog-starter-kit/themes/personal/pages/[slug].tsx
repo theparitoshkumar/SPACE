@@ -96,11 +96,12 @@ const Post = ({ publication, post }: PostProps) => {
 		<>
 			<Head>
 				<title>{post.seo?.title || post.title}</title>
-				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9309462067705097" crossorigin="anonymous"></script>
+				
 				<link rel="canonical" href={post.url} />
 				<meta name="description" content={post.seo?.description || post.subtitle || post.brief} />
 				<meta property="twitter:card" content="summary_large_image" />
 				<meta property="twitter:title" content={post.seo?.title || post.title} />
+				<meta name="google-adsense-account" content="ca-pub-9309462067705097"></meta>
 				<meta
 					property="twitter:description"
 					content={post.seo?.description || post.subtitle || post.brief}

@@ -88,13 +88,14 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 					<title>
 						{publication.displayTitle || publication.title || 'Hashnode Blog Starter Kit'}
 					</title>
-					<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9309462067705097" crossorigin="anonymous"></script>
+					
 					<meta
 						name="description"
 						content={
 							publication.descriptionSEO || publication.title || `${publication.author.name}'s Blog`
 						}
 					/>
+					<meta name="google-adsense-account" content="ca-pub-9309462067705097"></meta>
 					<meta property="twitter:card" content="summary_large_image" />
 					<meta
 						property="twitter:title"
