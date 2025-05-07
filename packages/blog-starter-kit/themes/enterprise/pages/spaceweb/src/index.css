@@ -1,0 +1,253 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 260 33% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 260 33% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 260 33% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 250 83% 88%;
+    --primary-foreground: 260 33% 11%;
+
+    --secondary: 260 33% 60%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 260 33% 20%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 195 85% 49%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 260 33% 20%;
+    --input: 260 33% 20%;
+    --ring: 195 85% 49%;
+
+    --radius: 0.5rem;
+
+    /* Ocean colors */
+    --ocean-deep: 210 100% 12%;
+    --ocean-medium: 200 100% 30%;
+    --ocean-light: 195 85% 49%;
+    
+    /* Space colors */
+    --space-dark: 260 33% 11%;
+    --space-medium: 260 33% 30%;
+    --space-light: 250 83% 88%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    background: linear-gradient(to top, #0d2b45 0%, #0c1a25 20%, #111827 40%, #1A1F2C 60%, #2A2453 100%);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins;
+  }
+  
+  ::selection {
+    @apply bg-space-purple/30 text-white;
+  }
+}
+
+/* Star field background */
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle 3s infinite;
+  animation-delay: calc(var(--delay) * 1s);
+  width: calc(var(--size) * 1px);
+  height: calc(var(--size) * 1px);
+  left: calc(var(--left) * 1%);
+  top: calc(var(--top) * 1%);
+}
+
+/* Enhanced animations */
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.8); }
+}
+
+@keyframes bubble-rise {
+  0% { transform: translateY(0) scale(1); opacity: 0.7; }
+  50% { transform: translateY(-25vh) scale(1.1); opacity: 0.5; }
+  100% { transform: translateY(-50vh) scale(0.8); opacity: 0; }
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-12px) rotate(2deg); }
+  50% { transform: translateY(-5px) rotate(-1deg); }
+  75% { transform: translateY(-8px) rotate(1deg); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(155, 135, 245, 0.6);
+    opacity: 0.8;
+  }
+  50% { 
+    box-shadow: 0 0 15px 5px rgba(155, 135, 245, 0.4);
+    opacity: 1;
+  }
+}
+
+@keyframes ocean-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(30, 174, 219, 0.6);
+    opacity: 0.8;
+  }
+  50% { 
+    box-shadow: 0 0 15px 5px rgba(30, 174, 219, 0.4);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes text-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@layer utilities {
+  .animate-pulse-slow {
+    animation: pulse-slow 3s infinite;
+  }
+  
+  .animate-ocean-pulse {
+    animation: ocean-pulse 3s infinite;
+  }
+  
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+
+  .animate-floating {
+    animation: floating 8s ease-in-out infinite;
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 15s linear infinite;
+  }
+  
+  .animate-gradient-shift {
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
+  }
+  
+  .animate-text-shimmer {
+    background-size: 200% auto;
+    animation: text-shimmer 3s linear infinite;
+  }
+  
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in {
+    animation: slide-in-from-right 0.8s ease-out forwards;
+  }
+
+  .animate-wave {
+    animation: wave 3s ease-in-out infinite;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 15px rgba(255,255,255,0.3);
+  }
+
+  .text-ocean-glow {
+    text-shadow: 0 0 10px rgba(30, 174, 219, 0.5);
+  }
+
+  .text-space-glow {
+    text-shadow: 0 0 10px rgba(155, 135, 245, 0.5);
+  }
+  
+  .glassmorphism {
+    @apply backdrop-blur-lg bg-white/5 border border-white/10;
+  }
+
+  .ocean-glassmorphism {
+    @apply backdrop-blur-lg bg-sky-500/5 border border-sky-400/10;
+  }
+
+  .space-glassmorphism {
+    @apply backdrop-blur-lg bg-space-purple/5 border border-space-purple/10;
+  }
+
+  .bg-ocean-gradient {
+    background: linear-gradient(135deg, #0ea5e9 0%, #0c4a6e 100%);
+  }
+
+  .bg-space-gradient {
+    background: linear-gradient(135deg, #7e69ab 0%, #1a1f2c 100%);
+  }
+
+  .bg-ocean-to-space {
+    background: linear-gradient(to top, #0ea5e9 0%, #1e293b 50%, #7e69ab 100%);
+  }
+}
